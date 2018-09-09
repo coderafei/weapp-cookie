@@ -57,7 +57,16 @@ const cookieStore = (function (wx, request) {
 
   // 返回 cookieStore
   return cookieStore
-})(wx, wx.request)
+})
+
+let store;
+function init() {
+  store = cookieStore(wx, wx.request);
+}
+
+function getStore() {
+  return store;
+}
 
 // 导出 cookieStore 实例
-export default cookieStore
+export default { init, getStore }
